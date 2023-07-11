@@ -4,7 +4,12 @@
 
 - [Overview](#overview)
 - [How to Run](#how-to-run)
-- [Links](#links) -[Process](#process) - [Technologies](#technologies) - [Dependencies](#dependencies) - [Dev Dependencies](#dev-dependencies) - [API](#api)
+- [Links](#links)
+- [Process](#process)
+ - [Technologies](#technologies)
+ - [Dependencies](#dependencies)
+ - [Dev Dependencies](#dev-dependencies)
+ - [API](#api)
 - [Features](#features)
 
 ## Overview
