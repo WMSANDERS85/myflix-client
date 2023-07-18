@@ -27277,12 +27277,7 @@ MovieCard.propTypes = {
         image: (0, _propTypesDefault.default).string.isRequired
     }).isRequired,
     handleMovieClick: (0, _propTypesDefault.default).func.isRequired
-}; // id: movie._id,
- //           Title: movie.title,
- //           Description: movie.description,
- //           Genre: movie.genre,
- //           Director: movie.director,
- //           Image: movie.image,
+};
 var _c;
 $RefreshReg$(_c, "MovieCard");
 
