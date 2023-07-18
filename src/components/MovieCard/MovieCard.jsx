@@ -18,3 +18,10 @@ MovieCard.propTypes = {
   }).isRequired,
   handleMovieClick: PropTypes.func.isRequired,
 };
+
+// id: movie._id,
+//           Title: movie.title,
+//           Description: movie.description,
+//           Genre: movie.genre,
+//           Director: movie.director,
+//           Image: movie.image,
