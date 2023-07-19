@@ -27178,6 +27178,7 @@ function Mainview() {
     const [movies, setMovies] = (0, _react.useState)(null);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     const [user, setUser] = (0, _react.useState)(null);
+    const [token, setToken] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         fetch("https://myflix-movies-app-3c39c5149294.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
             console.log("Movie data from API", data);
@@ -27195,10 +27196,13 @@ function Mainview() {
         });
     }, []);
     if (!user) /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-        onLoggedIn: (user)=>setUser(user)
+        onLoggedIn: (user, token)=>{
+            setUser(user);
+            setToken(token);
+        }
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 35,
+        lineNumber: 36,
         columnNumber: 5
     }, this);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -27206,41 +27210,56 @@ function Mainview() {
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 40,
+        lineNumber: 46,
         columnNumber: 7
     }, this);
     if (!movies) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "Loading..."
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 48,
+        lineNumber: 54,
         columnNumber: 12
     }, this);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 52,
+        lineNumber: 58,
         columnNumber: 12
     }, this);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                movie: movie,
-                handleMovieClick: (newSelectedMovie)=>{
-                    setSelectedMovie(newSelectedMovie);
-                }
-            }, movie.id, false, {
-                fileName: "src/components/MainView/MainView.jsx",
-                lineNumber: 58,
-                columnNumber: 9
-            }, this))
-    }, void 0, false, {
+        children: [
+            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                    movie: movie,
+                    handleMovieClick: (newSelectedMovie)=>{
+                        setSelectedMovie(newSelectedMovie);
+                    }
+                }, movie.id, false, {
+                    fileName: "src/components/MainView/MainView.jsx",
+                    lineNumber: 64,
+                    columnNumber: 9
+                }, this)),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: ()=>{
+                        setUser(null);
+                        setToken(null);
+                    },
+                    children: "Logout"
+                }, void 0, false, {
+                    fileName: "src/components/MainView/MainView.jsx",
+                    lineNumber: 73,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false)
+        ]
+    }, void 0, true, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 56,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 }
-_s(Mainview, "aUEM8puLymMV0z5wGK2NhqnAxRU=");
+_s(Mainview, "ZK4aWxJxzMqE4/TwZq9zqAMFpFs=");
 _c = Mainview;
 var _c;
 $RefreshReg$(_c, "Mainview");
@@ -28369,15 +28388,24 @@ const LoginView = ({ onLoggedIn })=>{
         event.preventDefault();
     };
     const data = {
-        access: username,
-        secret: password
+        Username: username,
+        Password: password
     };
-    fetch("https://myflix-movies-app-3c39c5149294.herokuapp.com/movies", {
+    fetch("https://myflix-movies-app-3c39c5149294.herokuapp.com/login", {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(data)
-    }).then((response)=>{
-        if (response.ok) onLoggedIn(username);
-        else response.json(401).message("Login failed");
+    }).then((response)=>response.json()).then((data)=>{
+        console.log("Login response", data);
+        if (data.user) {
+            localStorage.setItem("user", JSON.stringify(data.user));
+            localStorage.setItem("token", data.token);
+            onLoggedIn(data.user, data.token);
+        } else alert("User does not exist");
+    }).catch((e)=>{
+        alert("Something went wrong! Please try again.");
     });
 };
 _s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");

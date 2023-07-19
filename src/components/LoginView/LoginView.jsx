@@ -7,18 +7,29 @@ export const LoginView = ({onLoggedIn}) => {
     event.preventDefault();
   };
   const data = {
-    access: username,
-    secret: password,
+    Username: username,
+    Password: password,
   };
 
-  fetch('https://myflix-movies-app-3c39c5149294.herokuapp.com/movies', {
+  fetch('https://myflix-movies-app-3c39c5149294.herokuapp.com/login', {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify(data),
-  }).then((response) => {
-    if (response.ok) {
-      onLoggedIn(username);
-    } else {
-      response.json(401).message('Login failed');
-    }
-  });
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Login response', data);
+      if (data.user) {
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.token);
+        onLoggedIn(data.user, data.token);
+      } else {
+        alert('User does not exist');
+      }
+    })
+    .catch((e) => {
+      alert('Something went wrong! Please try again.');
+    });
 };

@@ -10,6 +10,7 @@ export function Mainview() {
   const [movies, setMovies] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
     fetch('https://myflix-movies-app-3c39c5149294.herokuapp.com/movies')
@@ -32,7 +33,12 @@ export function Mainview() {
   }, []);
 
   if (!user) {
-    <LoginView onLoggedIn={(user) => setUser(user)} />;
+    <LoginView
+      onLoggedIn={(user, token) => {
+        setUser(user);
+        setToken(token);
+      }}
+    />;
   }
 
   if (selectedMovie) {
@@ -63,6 +69,16 @@ export function Mainview() {
           }}
         />
       ))}
+      <>
+        <button
+          onClick={() => {
+            setUser(null);
+            setToken(null);
+          }}
+        >
+          Logout
+        </button>
+      </>
     </div>
   );
 }
