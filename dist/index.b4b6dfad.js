@@ -27175,10 +27175,12 @@ var _loginView = require("../LoginView/LoginView");
 var _s = $RefreshSig$();
 function Mainview() {
     _s();
-    const [movies, setMovies] = (0, _react.useState)(null);
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
+    const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-    const [user, setUser] = (0, _react.useState)(null);
-    const [token, setToken] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         fetch("https://myflix-movies-app-3c39c5149294.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
             console.log("Movie data from API", data);
@@ -27202,7 +27204,7 @@ function Mainview() {
         }
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 36,
+        lineNumber: 38,
         columnNumber: 5
     }, this);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -27210,21 +27212,21 @@ function Mainview() {
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 46,
+        lineNumber: 48,
         columnNumber: 7
     }, this);
     if (!movies) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "Loading..."
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 54,
+        lineNumber: 56,
         columnNumber: 12
     }, this);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 58,
+        lineNumber: 60,
         columnNumber: 12
     }, this);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27236,7 +27238,7 @@ function Mainview() {
                     }
                 }, movie.id, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 64,
+                    lineNumber: 66,
                     columnNumber: 9
                 }, this)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -27244,22 +27246,23 @@ function Mainview() {
                     onClick: ()=>{
                         setUser(null);
                         setToken(null);
+                        localStorage.clear();
                     },
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 73,
+                    lineNumber: 75,
                     columnNumber: 9
                 }, this)
             }, void 0, false)
         ]
     }, void 0, true, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 62,
+        lineNumber: 64,
         columnNumber: 5
     }, this);
 }
-_s(Mainview, "ZK4aWxJxzMqE4/TwZq9zqAMFpFs=");
+_s(Mainview, "9wJBvfUyU2IigbyWC+M5y3EH9h4=");
 _c = Mainview;
 var _c;
 $RefreshReg$(_c, "Mainview");
