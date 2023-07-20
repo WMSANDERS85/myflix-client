@@ -27218,12 +27218,35 @@ function Mainview() {
     }, [
         token
     ]);
-    if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-        onLoggedIn: (user, token)=>{
-            setUser(user);
-            setToken(token);
-        }
-    }, void 0, false, {
+    if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
+                onLoggedIn: (user, token)=>{
+                    setUser(user);
+                    setToken(token);
+                }
+            }, void 0, false, {
+                fileName: "src/components/MainView/MainView.jsx",
+                lineNumber: 55,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>setShowSignup(true),
+                children: "Sign Up"
+            }, void 0, false, {
+                fileName: "src/components/MainView/MainView.jsx",
+                lineNumber: 61,
+                columnNumber: 9
+            }, this),
+            showSignup && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpView.SignupView), {
+                onSignedUp: handleSignup
+            }, void 0, false, {
+                fileName: "src/components/MainView/MainView.jsx",
+                lineNumber: 62,
+                columnNumber: 24
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "src/components/MainView/MainView.jsx",
         lineNumber: 54,
         columnNumber: 7
@@ -27233,21 +27256,21 @@ function Mainview() {
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 65,
+        lineNumber: 69,
         columnNumber: 7
     }, this);
     if (!movies) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "Loading..."
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 73,
+        lineNumber: 77,
         columnNumber: 12
     }, this);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 77,
+        lineNumber: 81,
         columnNumber: 12
     }, this);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27259,7 +27282,7 @@ function Mainview() {
                     }
                 }, movie.id, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 83,
+                    lineNumber: 87,
                     columnNumber: 9
                 }, this)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -27272,14 +27295,14 @@ function Mainview() {
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 92,
+                    lineNumber: 96,
                     columnNumber: 9
                 }, this)
             }, void 0, false)
         ]
     }, void 0, true, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 81,
+        lineNumber: 85,
         columnNumber: 5
     }, this);
 }

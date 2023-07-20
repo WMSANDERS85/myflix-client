@@ -51,12 +51,16 @@ export function Mainview() {
 
   if (!user) {
     return (
-      <LoginView
-        onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }}
-      />
+      <div>
+        <LoginView
+          onLoggedIn={(user, token) => {
+            setUser(user);
+            setToken(token);
+          }}
+        />
+        <button onClick={() => setShowSignup(true)}>Sign Up</button>
+        {showSignup && <SignupView onSignedUp={handleSignup} />}
+      </div>
     );
   }
 
