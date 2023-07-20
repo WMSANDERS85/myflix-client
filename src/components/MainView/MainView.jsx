@@ -6,16 +6,31 @@ import {MovieView} from '../MovieView/MovieView';
 
 import {LoginView} from '../LoginView/LoginView';
 
+import {SignupView} from '../SignupView/SignUpView';
+
 export function Mainview() {
   const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
-  const [user, setUser] = useState(storedUser ? storedUser : null);
-  const [token, setToken] = useState(storedToken ? storedToken : null);
-  const [movies, setMovies] = useState([]);
+  const [user, setUser] = useState(storedUser);
+  const [token, setToken] = useState(storedToken);
+  const [movies, setMovies] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [showSignup, setShowSignup] = useState(false);
+  const handleSignup = (user) => {
+    setShowSignup(false);
+    setUser(user);
+  };
 
   useEffect(() => {
-    fetch('https://myflix-movies-app-3c39c5149294.herokuapp.com/movies')
+    console.log({token});
+    if (!token) return;
+    fetch('https://myflix-movies-app-3c39c5149294.herokuapp.com/movies', {
+      headers: {Authorization: `Bearer ${token}`},
+    })
+      .then((response) => {
+        console.log({response});
+        return response;
+      })
       .then((response) => response.json())
       .then((data) => {
         console.log('Movie data from API', data);
@@ -32,15 +47,17 @@ export function Mainview() {
       .catch((error) => {
         console.error('Something went wrong', error);
       });
-  }, []);
+  }, [token]);
 
   if (!user) {
-    <LoginView
-      onLoggedIn={(user, token) => {
-        setUser(user);
-        setToken(token);
-      }}
-    />;
+    return (
+      <LoginView
+        onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }}
+      />
+    );
   }
 
   if (selectedMovie) {
