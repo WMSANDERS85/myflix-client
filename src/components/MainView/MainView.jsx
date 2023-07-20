@@ -16,6 +16,7 @@ export function Mainview() {
   const [movies, setMovies] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [showSignup, setShowSignup] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
   const handleSignup = (user) => {
     setShowSignup(false);
     setUser(user);
@@ -50,18 +51,26 @@ export function Mainview() {
   }, [token]);
 
   if (!user) {
-    return (
-      <div>
-        <LoginView
-          onLoggedIn={(user, token) => {
-            setUser(user);
-            setToken(token);
-          }}
-        />
-        <button onClick={() => setShowSignup(true)}>Sign Up</button>
-        {showSignup && <SignupView onSignedUp={handleSignup} />}
-      </div>
-    );
+    if (showLogin) {
+      return (
+        <div>
+          <LoginView
+            onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
+            }}
+          />
+          <button onClick={() => setShowLogin(false)}>Sign Up</button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <SignupView onSignedUp={handleSignup} />
+          <button onClick={() => setShowLogin(true)}>Back to Login</button>
+        </div>
+      );
+    }
   }
 
   if (selectedMovie) {
