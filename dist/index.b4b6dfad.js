@@ -27337,7 +27337,9 @@ function Mainview() {
                         lineNumber: 106,
                         columnNumber: 13
                     }, this)),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                    variant: "outline-danger",
+                    size: "md",
                     onClick: ()=>{
                         setUser(null);
                         setToken(null);

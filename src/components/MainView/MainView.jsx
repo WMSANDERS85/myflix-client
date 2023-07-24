@@ -113,7 +113,9 @@ export function Mainview() {
               />
             </Col>
           ))}
-          <button
+          <Button
+            variant="outline-danger"
+            size="md"
             onClick={() => {
               setUser(null);
               setToken(null);
@@ -121,7 +123,7 @@ export function Mainview() {
             }}
           >
             Logout
-          </button>
+          </Button>
         </>
       )}
     </Row>
