@@ -103,13 +103,15 @@ export function Mainview() {
       ) : (
         <>
           {movies.map((movie) => (
-            <MovieCard
-              key={movie.id}
-              movie={movie}
-              handleMovieClick={(newSelectedMovie) => {
-                setSelectedMovie(newSelectedMovie);
-              }}
-            />
+            <Col className="mb-5" key={movie.id} md={3}>
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                handleMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
           ))}
           <button
             onClick={() => {

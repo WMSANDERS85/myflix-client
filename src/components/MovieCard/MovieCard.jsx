@@ -7,7 +7,7 @@ export const MovieCard = ({handleMovieClick, movie}) => {
   // };
 
   return (
-    <Card>
+    <Card className="h-100">
       <Card.Img variant="top" src={movie.image} />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
@@ -16,7 +16,6 @@ export const MovieCard = ({handleMovieClick, movie}) => {
       <Button onClick={() => handleMovieClick(movie)} variant="link">
         More
       </Button>
-      MovieCard
     </Card>
   );
 };

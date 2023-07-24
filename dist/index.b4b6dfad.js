@@ -27319,11 +27319,19 @@ function Mainview() {
             columnNumber: 9
         }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: [
-                movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                        movie: movie,
-                        handleMovieClick: (newSelectedMovie)=>{
-                            setSelectedMovie(newSelectedMovie);
-                        }
+                movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                        className: "mb-5",
+                        md: 3,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                            movie: movie,
+                            handleMovieClick: (newSelectedMovie)=>{
+                                setSelectedMovie(newSelectedMovie);
+                            }
+                        }, movie.id, false, {
+                            fileName: "src/components/MainView/MainView.jsx",
+                            lineNumber: 107,
+                            columnNumber: 15
+                        }, this)
                     }, movie.id, false, {
                         fileName: "src/components/MainView/MainView.jsx",
                         lineNumber: 106,
@@ -27338,7 +27346,7 @@ function Mainview() {
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 114,
+                    lineNumber: 116,
                     columnNumber: 11
                 }, this)
             ]
@@ -27378,6 +27386,7 @@ const MovieCard = ({ handleMovieClick, movie })=>{
     //   handleMovieClick(movie);
     // };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+        className: "h-100",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
                 variant: "top",
@@ -27417,8 +27426,7 @@ const MovieCard = ({ handleMovieClick, movie })=>{
                 fileName: "src/components/MovieCard/MovieCard.jsx",
                 lineNumber: 16,
                 columnNumber: 7
-            }, undefined),
-            "MovieCard"
+            }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/MovieCard/MovieCard.jsx",
