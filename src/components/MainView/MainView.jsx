@@ -4,12 +4,34 @@ import {MovieCard} from '../MovieCard/MovieCard';
 
 import {MovieView} from '../MovieView/MovieView';
 
+import {LoginView} from '../LoginView/LoginView';
+
+import {SignupView} from '../SignupView/SignUpView';
+
 export function Mainview() {
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+  const storedToken = localStorage.getItem('token');
+  const [user, setUser] = useState(storedUser);
+  const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [showSignup, setShowSignup] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
+  const handleSignup = (user) => {
+    setShowSignup(false);
+    setUser(user);
+  };
 
   useEffect(() => {
-    fetch('https://myflix-movies-app-3c39c5149294.herokuapp.com/movies')
+    console.log({token});
+    if (!token) return;
+    fetch('https://myflix-movies-app-3c39c5149294.herokuapp.com/movies', {
+      headers: {Authorization: `Bearer ${token}`},
+    })
+      .then((response) => {
+        console.log({response});
+        return response;
+      })
       .then((response) => response.json())
       .then((data) => {
         console.log('Movie data from API', data);
@@ -26,7 +48,30 @@ export function Mainview() {
       .catch((error) => {
         console.error('Something went wrong', error);
       });
-  }, []);
+  }, [token]);
+
+  if (!user) {
+    if (showLogin) {
+      return (
+        <div>
+          <LoginView
+            onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
+            }}
+          />
+          <button onClick={() => setShowLogin(false)}>Sign Up</button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <SignupView onSignedUp={handleSignup} />
+          <button onClick={() => setShowLogin(true)}>Back to Login</button>
+        </div>
+      );
+    }
+  }
 
   if (selectedMovie) {
     return (
@@ -56,6 +101,17 @@ export function Mainview() {
           }}
         />
       ))}
+      <>
+        <button
+          onClick={() => {
+            setUser(null);
+            setToken(null);
+            localStorage.clear();
+          }}
+        >
+          Logout
+        </button>
+      </>
     </div>
   );
 }
