@@ -8,6 +8,8 @@ import {LoginView} from '../LoginView/LoginView';
 
 import {SignupView} from '../SignupView/SignUpView';
 
+import Button from 'react-bootstrap/Button';
+
 export function Mainview() {
   const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
@@ -60,14 +62,25 @@ export function Mainview() {
               setToken(token);
             }}
           />
-          <button onClick={() => setShowLogin(false)}>Sign Up</button>
+          <Button variant="link" onClick={() => setShowLogin(false)}>
+            Not a memeber? Sign Up here!
+          </Button>
         </div>
       );
     } else {
       return (
         <div>
           <SignupView onSignedUp={handleSignup} />
-          <button onClick={() => setShowLogin(true)}>Back to Login</button>
+          <div className="d-grid-gap{1}">
+            <Button
+              variant="link"
+              size="lg"
+              type="submit"
+              onClick={() => setShowLogin(true)}
+            >
+              Back to Login
+            </Button>
+          </div>
         </div>
       );
     }
