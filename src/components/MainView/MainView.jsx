@@ -14,6 +14,10 @@ import Row from 'react-bootstrap/Row';
 
 import Col from 'react-bootstrap/Col';
 
+import Card from 'react-bootstrap/Card';
+
+import Container from 'react-bootstrap/Container';
+
 export function Mainview() {
   const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
@@ -61,32 +65,44 @@ export function Mainview() {
       {!user ? (
         showLogin ? (
           <>
-            <Col md={5}>
-              <LoginView
-                onLoggedIn={(user, token) => {
-                  setUser(user);
-                  setToken(token);
-                }}
-              />
+            <Container>
+              <Card>
+                <Card.Body>
+                  <Col md={5}>
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
 
-              <Button variant="link" onClick={() => setShowLogin(false)}>
-                Not a memeber? Sign Up here!
-              </Button>
-            </Col>
+                    <Button variant="link" onClick={() => setShowLogin(false)}>
+                      Not a memeber? Sign Up here!
+                    </Button>
+                  </Col>
+                </Card.Body>
+              </Card>
+            </Container>
           </>
         ) : (
           <>
-            <Col md={6}>
-              <SignupView onSignedUp={handleSignup} />
+            <Container>
+              <Card>
+                <Card.Body>
+                  <Col md={6}>
+                    <SignupView onSignedUp={handleSignup} />
 
-              <Button
-                variant="link"
-                type="submit"
-                onClick={() => setShowLogin(true)}
-              >
-                Already a member? Login here!
-              </Button>
-            </Col>
+                    <Button
+                      variant="link"
+                      type="submit"
+                      onClick={() => setShowLogin(true)}
+                    >
+                      Already a member? Login here!
+                    </Button>
+                  </Col>
+                </Card.Body>
+              </Card>
+            </Container>
           </>
         )
       ) : selectedMovie ? (
@@ -114,7 +130,7 @@ export function Mainview() {
             </Col>
           ))}
           <Button
-            variant="outline-danger"
+            variant="danger"
             size="md"
             onClick={() => {
               setUser(null);

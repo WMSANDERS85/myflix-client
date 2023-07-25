@@ -9,7 +9,7 @@ export const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info">Search</Button>
+          <Button variant="primary">Search</Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>

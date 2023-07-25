@@ -28219,6 +28219,10 @@ var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _container = require("react-bootstrap/Container");
+var _containerDefault = parcelHelpers.interopDefault(_container);
 var _s = $RefreshSig$();
 function Mainview() {
     _s();
@@ -28267,59 +28271,95 @@ function Mainview() {
     ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
         children: !user ? showLogin ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                md: 5,
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-                        onLoggedIn: (user, token)=>{
-                            setUser(user);
-                            setToken(token);
-                        }
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                            md: 5,
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
+                                    onLoggedIn: (user, token)=>{
+                                        setUser(user);
+                                        setToken(token);
+                                    }
+                                }, void 0, false, {
+                                    fileName: "src/components/MainView/MainView.jsx",
+                                    lineNumber: 72,
+                                    columnNumber: 21
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    variant: "link",
+                                    onClick: ()=>setShowLogin(false),
+                                    children: "Not a memeber? Sign Up here!"
+                                }, void 0, false, {
+                                    fileName: "src/components/MainView/MainView.jsx",
+                                    lineNumber: 79,
+                                    columnNumber: 21
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/MainView/MainView.jsx",
+                            lineNumber: 71,
+                            columnNumber: 19
+                        }, this)
                     }, void 0, false, {
                         fileName: "src/components/MainView/MainView.jsx",
-                        lineNumber: 65,
-                        columnNumber: 15
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                        variant: "link",
-                        onClick: ()=>setShowLogin(false),
-                        children: "Not a memeber? Sign Up here!"
-                    }, void 0, false, {
-                        fileName: "src/components/MainView/MainView.jsx",
-                        lineNumber: 72,
-                        columnNumber: 15
+                        lineNumber: 70,
+                        columnNumber: 17
                     }, this)
-                ]
-            }, void 0, true, {
+                }, void 0, false, {
+                    fileName: "src/components/MainView/MainView.jsx",
+                    lineNumber: 69,
+                    columnNumber: 15
+                }, this)
+            }, void 0, false, {
                 fileName: "src/components/MainView/MainView.jsx",
-                lineNumber: 64,
+                lineNumber: 68,
                 columnNumber: 13
             }, this)
         }, void 0, false) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                md: 6,
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpView.SignupView), {
-                        onSignedUp: handleSignup
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                            md: 6,
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpView.SignupView), {
+                                    onSignedUp: handleSignup
+                                }, void 0, false, {
+                                    fileName: "src/components/MainView/MainView.jsx",
+                                    lineNumber: 93,
+                                    columnNumber: 21
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    variant: "link",
+                                    type: "submit",
+                                    onClick: ()=>setShowLogin(true),
+                                    children: "Already a member? Login here!"
+                                }, void 0, false, {
+                                    fileName: "src/components/MainView/MainView.jsx",
+                                    lineNumber: 95,
+                                    columnNumber: 21
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/MainView/MainView.jsx",
+                            lineNumber: 92,
+                            columnNumber: 19
+                        }, this)
                     }, void 0, false, {
                         fileName: "src/components/MainView/MainView.jsx",
-                        lineNumber: 80,
-                        columnNumber: 15
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                        variant: "link",
-                        type: "submit",
-                        onClick: ()=>setShowLogin(true),
-                        children: "Already a member? Login here!"
-                    }, void 0, false, {
-                        fileName: "src/components/MainView/MainView.jsx",
-                        lineNumber: 82,
-                        columnNumber: 15
+                        lineNumber: 91,
+                        columnNumber: 17
                     }, this)
-                ]
-            }, void 0, true, {
+                }, void 0, false, {
+                    fileName: "src/components/MainView/MainView.jsx",
+                    lineNumber: 90,
+                    columnNumber: 15
+                }, this)
+            }, void 0, false, {
                 fileName: "src/components/MainView/MainView.jsx",
-                lineNumber: 79,
+                lineNumber: 89,
                 columnNumber: 13
             }, this)
         }, void 0, false) : selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -28329,24 +28369,24 @@ function Mainview() {
                 onBackClick: ()=>setSelectedMovie(null)
             }, void 0, false, {
                 fileName: "src/components/MainView/MainView.jsx",
-                lineNumber: 94,
+                lineNumber: 110,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "src/components/MainView/MainView.jsx",
-            lineNumber: 93,
+            lineNumber: 109,
             columnNumber: 9
         }, this) : !movies ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: "Loading..."
         }, void 0, false, {
             fileName: "src/components/MainView/MainView.jsx",
-            lineNumber: 100,
+            lineNumber: 116,
             columnNumber: 9
         }, this) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/components/MainView/MainView.jsx",
-            lineNumber: 102,
+            lineNumber: 118,
             columnNumber: 9
         }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: [
@@ -28360,16 +28400,16 @@ function Mainview() {
                             }
                         }, movie.id, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 107,
+                            lineNumber: 123,
                             columnNumber: 15
                         }, this)
                     }, movie.id, false, {
                         fileName: "src/components/MainView/MainView.jsx",
-                        lineNumber: 106,
+                        lineNumber: 122,
                         columnNumber: 13
                     }, this)),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                    variant: "outline-danger",
+                    variant: "danger",
                     size: "md",
                     onClick: ()=>{
                         setUser(null);
@@ -28379,14 +28419,14 @@ function Mainview() {
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 116,
+                    lineNumber: 132,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true)
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 60,
+        lineNumber: 64,
         columnNumber: 5
     }, this);
 }
@@ -28400,7 +28440,7 @@ $RefreshReg$(_c, "Mainview");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../MovieCard/MovieCard":"99v78","../MovieView/MovieView":"208CJ","../LoginView/LoginView":"7GV9H","../SignupView/SignUpView":"2nSdi","react-bootstrap/Button":"aPzUt","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"cjRxV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kxDtd"}],"99v78":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../MovieCard/MovieCard":"99v78","../MovieView/MovieView":"208CJ","../LoginView/LoginView":"7GV9H","../SignupView/SignUpView":"2nSdi","react-bootstrap/Button":"aPzUt","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"cjRxV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kxDtd","react-bootstrap/Card":"lAynp","react-bootstrap/Container":"hEdsw"}],"99v78":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$854b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41541,7 +41581,7 @@ const Header = ()=>{
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                            variant: "outline-info",
+                            variant: "primary",
                             children: "Search"
                         }, void 0, false, {
                             fileName: "src/components/Header/Header.jsx",
