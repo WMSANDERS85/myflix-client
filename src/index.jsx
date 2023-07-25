@@ -2,7 +2,11 @@ import {createRoot} from 'react-dom/client';
 
 import Container from 'react-bootstrap/Container';
 
+import {Header} from './components/Header/Header';
+
 import {Mainview} from './components/MainView/MainView';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
@@ -11,6 +15,7 @@ import './index.scss';
 function MyFlixApplication() {
   return (
     <Container>
+      <Header />
       <Mainview />
     </Container>
   );
