@@ -76,7 +76,7 @@ export function Mainview() {
           </>
         ) : (
           <>
-            <Col md={5}>
+            <Col md={6}>
               <SignupView onSignedUp={handleSignup} />
 
               <Button
