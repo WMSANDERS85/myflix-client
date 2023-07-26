@@ -8,6 +8,16 @@ import {LoginView} from '../LoginView/LoginView';
 
 import {SignupView} from '../SignupView/SignUpView';
 
+import Button from 'react-bootstrap/Button';
+
+import Row from 'react-bootstrap/Row';
+
+import Col from 'react-bootstrap/Col';
+
+import Card from 'react-bootstrap/Card';
+
+import Container from 'react-bootstrap/Container';
+
 export function Mainview() {
   const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
@@ -50,68 +60,88 @@ export function Mainview() {
       });
   }, [token]);
 
-  if (!user) {
-    if (showLogin) {
-      return (
-        <div>
-          <LoginView
-            onLoggedIn={(user, token) => {
-              setUser(user);
-              setToken(token);
-            }}
-          />
-          <button onClick={() => setShowLogin(false)}>Sign Up</button>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <SignupView onSignedUp={handleSignup} />
-          <button onClick={() => setShowLogin(true)}>Back to Login</button>
-        </div>
-      );
-    }
-  }
-
-  if (selectedMovie) {
-    return (
-      <MovieView
-        movie={selectedMovie}
-        onBackClick={() => setSelectedMovie(null)}
-      />
-    );
-  }
-
-  if (!movies) {
-    return <div>Loading...</div>;
-  }
-
-  if (movies.length === 0) {
-    return <div>The list is empty!</div>;
-  }
-
   return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          handleMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
-      <>
-        <button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-        >
-          Logout
-        </button>
-      </>
-    </div>
+    <Row>
+      {!user ? (
+        showLogin ? (
+          <>
+            <Container>
+              <Card>
+                <Card.Body>
+                  <Col md={5}>
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
+
+                    <Button variant="link" onClick={() => setShowLogin(false)}>
+                      Not a memeber? Sign Up here!
+                    </Button>
+                  </Col>
+                </Card.Body>
+              </Card>
+            </Container>
+          </>
+        ) : (
+          <>
+            <Container>
+              <Card>
+                <Card.Body>
+                  <Col md={6}>
+                    <SignupView onSignedUp={handleSignup} />
+
+                    <Button
+                      variant="link"
+                      type="submit"
+                      onClick={() => setShowLogin(true)}
+                    >
+                      Already a member? Login here!
+                    </Button>
+                  </Col>
+                </Card.Body>
+              </Card>
+            </Container>
+          </>
+        )
+      ) : selectedMovie ? (
+        <Col md={6}>
+          <MovieView
+            movie={selectedMovie}
+            onBackClick={() => setSelectedMovie(null)}
+          />
+        </Col>
+      ) : !movies ? (
+        <div>Loading...</div>
+      ) : movies.length === 0 ? (
+        <div>The list is empty!</div>
+      ) : (
+        <>
+          {movies.map((movie) => (
+            <Col className="mb-5" key={movie.id} md={3}>
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                handleMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
+          ))}
+          <Button
+            variant="danger"
+            size="md"
+            onClick={() => {
+              setUser(null);
+              setToken(null);
+              localStorage.clear();
+            }}
+          >
+            Logout
+          </Button>
+        </>
+      )}
+    </Row>
   );
 }
