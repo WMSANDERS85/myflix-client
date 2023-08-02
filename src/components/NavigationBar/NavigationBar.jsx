@@ -1,19 +1,34 @@
 import React from 'react';
-import {Navbar, Form, FormControl, Button, Nav} from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import {Link} from 'react-router-dom';
 
-export const Header = () => {
+export function NavigationBar({isLoggedIn, onLogout}) {
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">My-Flix</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="primary">Search</Button>
-        </Form>
-      </Navbar.Collapse>
+      <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
+      <Nav className="mr-auto">
+        {isLoggedIn ? (
+          <>
+            <Nav.Link as={Link} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/profile">
+              Profile
+            </Nav.Link>
+            <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+          </>
+        ) : (
+          <>
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/signup">
+              Signup
+            </Nav.Link>
+          </>
+        )}
+      </Nav>
     </Navbar>
   );
-};
-
-export default Header;
+}

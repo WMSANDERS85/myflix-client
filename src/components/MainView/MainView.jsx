@@ -3,6 +3,7 @@ import {MovieCard} from '../MovieCard/MovieCard';
 import {MovieView} from '../MovieView/MovieView';
 import {LoginView} from '../LoginView/LoginView';
 import {SignupView} from '../SignupView/SignUpView';
+import {NavigationBar} from '../NavigationBar/NavigationBar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
@@ -40,9 +41,17 @@ export function Mainview() {
       });
   }, [token]);
 
+  const logout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    setUser(null);
+    setUser(null);
+  };
+
   return (
     <BrowserRouter>
       <Row className="justify-content-md-center">
+        <NavigationBar isLoggedIn={!!user} onLogout={logout} />
         <Routes>
           <Route
             path="/signup"
