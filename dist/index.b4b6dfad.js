@@ -28389,11 +28389,8 @@ const MovieCard = ({ movie })=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                        children: [
-                            "Director:",
-                            movie.director.Name
-                        ]
-                    }, void 0, true, {
+                        children: movie.director.Name
+                    }, void 0, false, {
                         fileName: "src/components/MovieCard/MovieCard.jsx",
                         lineNumber: 12,
                         columnNumber: 9
