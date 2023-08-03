@@ -48,7 +48,13 @@ export function ProfileView({token, user, setUser, movies}) {
                 <UpdateUser profile={profile} setUser={setUser} token={token} />
               </Col>
               <DeleteUser profile={profile} setUser={setUser} token={token} />
-              <TopMovies profile={profile} movies={movies} />
+              <TopMovies
+                profile={profile}
+                movies={movies}
+                user={user}
+                setUser={setUser}
+                token={token}
+              />
             </Row>
           </Card.Body>
         </Card>

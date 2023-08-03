@@ -46,7 +46,7 @@ export function Mainview() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     setUser(null);
-    setUser(null);
+    setToken(null);
   };
 
   return (
@@ -103,7 +103,12 @@ export function Mainview() {
                 <Col>Loading...</Col>
               ) : (
                 <Col md={8}>
-                  <MovieView movies={movies} />
+                  <MovieView
+                    movies={movies}
+                    user={user}
+                    setUser={setUser}
+                    token={token}
+                  />
                 </Col>
               )
             }
@@ -121,7 +126,12 @@ export function Mainview() {
               ) : (
                 movies.map((movie) => (
                   <Col className="mb-4" key={movie.id} md={3}>
-                    <MovieCard movie={movie} />
+                    <MovieCard
+                      movie={movie}
+                      user={user}
+                      setUser={setUser}
+                      token={token}
+                    />
                   </Col>
                 ))
               )
