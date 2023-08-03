@@ -39317,7 +39317,7 @@ MovieCard.propTypes = {
         genre: (0, _propTypesDefault.default).object.isRequired,
         director: (0, _propTypesDefault.default).object.isRequired,
         image: (0, _propTypesDefault.default).string.isRequired,
-        _id: (0, _propTypesDefault.default).string.isRequired
+        id: (0, _propTypesDefault.default).string.isRequired
     }).isRequired,
     user: (0, _propTypesDefault.default).object,
     setUser: (0, _propTypesDefault.default).func.isRequired,
@@ -47952,7 +47952,7 @@ function TopMovies({ profile, movies, user, setUser, token }) {
                     user: user,
                     setUser: setUser,
                     token: token
-                }, movie._id, false, {
+                }, movie.id, false, {
                     fileName: "src/components/ProfileView/TopMovies.jsx",
                     lineNumber: 18,
                     columnNumber: 9

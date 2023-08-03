@@ -71,7 +71,7 @@ MovieCard.propTypes = {
     genre: PropTypes.object.isRequired,
     director: PropTypes.object.isRequired, // Corrected PropTypes for director
     image: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
   }).isRequired,
   user: PropTypes.object, // New PropTypes for user
   setUser: PropTypes.func.isRequired, // New PropTypes for setUser

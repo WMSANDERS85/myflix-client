@@ -16,7 +16,7 @@ export function TopMovies({profile, movies, user, setUser, token}) {
       <h2>Favorite Movies</h2>
       {favoriteMovies.map((movie) => (
         <MovieCard
-          key={movie._id}
+          key={movie.id}
           movie={movie}
           user={user}
           setUser={setUser}
