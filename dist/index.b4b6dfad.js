@@ -47727,7 +47727,7 @@ function UserInfo({ profile }) {
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: [
                         "Birthday: ",
-                        profile.Birthday
+                        profile.Birthday.slice(0, 10)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/ProfileView/UserInfo.jsx",
