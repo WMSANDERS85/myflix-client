@@ -4,6 +4,7 @@ import {MovieView} from '../MovieView/MovieView';
 import {LoginView} from '../LoginView/LoginView';
 import {SignupView} from '../SignupView/SignUpView';
 import {NavigationBar} from '../NavigationBar/NavigationBar';
+import {ProfileView} from '../ProfileView/ProfileView';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
@@ -65,6 +66,22 @@ export function Mainview() {
               )
             }
           />
+          <Route
+            path="/profile"
+            element={
+              user && movies ? (
+                <ProfileView
+                  token={token}
+                  user={user}
+                  setUser={setUser}
+                  movies={movies}
+                />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+
           <Route
             path="/login"
             element={
