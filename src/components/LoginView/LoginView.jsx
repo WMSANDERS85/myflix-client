@@ -39,6 +39,7 @@ export const LoginView = ({onLoggedIn}) => {
         console.log('error', e);
       });
   };
+
   return (
     <Container className="md{4}">
       <Card className="card mb-4">

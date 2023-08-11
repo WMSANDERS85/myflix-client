@@ -39240,9 +39240,9 @@ const MovieCard = ({ movie, user, setUser, token })=>{
             }
         });
         if (response.ok) {
-            const updatedUser = await response.json();
-            setUser(updatedUser);
-            setIsFavorite(updatedUser.FavoriteMovies.some((fm)=>fm == movie.id));
+            const userResponse = await response.json();
+            setUser(userResponse.user);
+            setIsFavorite(userResponse.user.FavoriteMovies.some((fm)=>fm == movie.id));
         } else console.error("Failed to update favorite movies.");
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
@@ -39253,7 +39253,7 @@ const MovieCard = ({ movie, user, setUser, token })=>{
                 src: movie.image
             }, void 0, false, {
                 fileName: "src/components/MovieCard/MovieCard.jsx",
-                lineNumber: 52,
+                lineNumber: 54,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -39262,14 +39262,14 @@ const MovieCard = ({ movie, user, setUser, token })=>{
                         children: movie.title
                     }, void 0, false, {
                         fileName: "src/components/MovieCard/MovieCard.jsx",
-                        lineNumber: 54,
+                        lineNumber: 56,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
                         children: movie.director.Name
                     }, void 0, false, {
                         fileName: "src/components/MovieCard/MovieCard.jsx",
-                        lineNumber: 55,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -39279,12 +39279,12 @@ const MovieCard = ({ movie, user, setUser, token })=>{
                             children: "More"
                         }, void 0, false, {
                             fileName: "src/components/MovieCard/MovieCard.jsx",
-                            lineNumber: 57,
+                            lineNumber: 59,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/MovieCard/MovieCard.jsx",
-                        lineNumber: 56,
+                        lineNumber: 58,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -39292,19 +39292,19 @@ const MovieCard = ({ movie, user, setUser, token })=>{
                         children: isFavorite ? "Remove from Favorites" : "Add to Favorites"
                     }, void 0, false, {
                         fileName: "src/components/MovieCard/MovieCard.jsx",
-                        lineNumber: 59,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/MovieCard/MovieCard.jsx",
-                lineNumber: 53,
+                lineNumber: 55,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/MovieCard/MovieCard.jsx",
-        lineNumber: 51,
+        lineNumber: 53,
         columnNumber: 5
     }, undefined);
 };
@@ -47245,7 +47245,7 @@ const LoginView = ({ onLoggedIn })=>{
                                     children: "Username:"
                                 }, void 0, false, {
                                     fileName: "src/components/LoginView/LoginView.jsx",
-                                    lineNumber: 48,
+                                    lineNumber: 49,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -47255,13 +47255,13 @@ const LoginView = ({ onLoggedIn })=>{
                                     required: true
                                 }, void 0, false, {
                                     fileName: "src/components/LoginView/LoginView.jsx",
-                                    lineNumber: 49,
+                                    lineNumber: 50,
                                     columnNumber: 15
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/LoginView/LoginView.jsx",
-                            lineNumber: 47,
+                            lineNumber: 48,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -47271,7 +47271,7 @@ const LoginView = ({ onLoggedIn })=>{
                                     children: "Password:"
                                 }, void 0, false, {
                                     fileName: "src/components/LoginView/LoginView.jsx",
-                                    lineNumber: 58,
+                                    lineNumber: 59,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -47281,13 +47281,13 @@ const LoginView = ({ onLoggedIn })=>{
                                     required: true
                                 }, void 0, false, {
                                     fileName: "src/components/LoginView/LoginView.jsx",
-                                    lineNumber: 59,
+                                    lineNumber: 60,
                                     columnNumber: 15
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/LoginView/LoginView.jsx",
-                            lineNumber: 57,
+                            lineNumber: 58,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -47296,28 +47296,28 @@ const LoginView = ({ onLoggedIn })=>{
                             children: "Login"
                         }, void 0, false, {
                             fileName: "src/components/LoginView/LoginView.jsx",
-                            lineNumber: 66,
+                            lineNumber: 67,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/LoginView/LoginView.jsx",
-                    lineNumber: 46,
+                    lineNumber: 47,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/LoginView/LoginView.jsx",
-                lineNumber: 45,
+                lineNumber: 46,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/LoginView/LoginView.jsx",
-            lineNumber: 44,
+            lineNumber: 45,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/LoginView/LoginView.jsx",
-        lineNumber: 43,
+        lineNumber: 44,
         columnNumber: 5
     }, undefined);
 };
@@ -47954,7 +47954,7 @@ $RefreshReg$(_c, "UpdateUser");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"cjRxV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kxDtd","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt"}],"do4uV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"cjRxV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kxDtd"}],"do4uV":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c227 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

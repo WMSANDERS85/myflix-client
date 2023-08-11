@@ -39,9 +39,11 @@ export const MovieCard = ({movie, user, setUser, token}) => {
     }
 
     if (response.ok) {
-      const updatedUser = await response.json();
-      setUser(updatedUser);
-      setIsFavorite(updatedUser.FavoriteMovies.some((fm) => fm == movie.id));
+      const userResponse = await response.json();
+      setUser(userResponse.user);
+      setIsFavorite(
+        userResponse.user.FavoriteMovies.some((fm) => fm == movie.id)
+      );
     } else {
       console.error('Failed to update favorite movies.');
     }
