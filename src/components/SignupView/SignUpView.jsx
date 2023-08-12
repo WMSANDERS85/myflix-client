@@ -33,9 +33,8 @@ export const SignupView = ({onSignedUp}) => {
         return response.json();
       })
       .then((data) => {
-        console.log('Signup response', data);
         if (data.user) {
-          onSignedUp(data.user);
+          alert(`${data.user.Username} has been created successfully`);
         } else {
           alert('User signup failed');
         }

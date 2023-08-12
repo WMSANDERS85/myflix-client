@@ -43,7 +43,6 @@ export function UpdateUser({profile, setUser, token}) {
 
   return (
     <div>
-      <h2>Update Information</h2>
       {error && <div>{error}</div>}
       <Form onSubmit={handleUpdate}>
         <Form.Group controlId="formUsername">

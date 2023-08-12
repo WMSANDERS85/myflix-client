@@ -1,6 +1,8 @@
 import React from 'react';
 import {MovieCard} from '../MovieCard/MovieCard';
 import {useNavigate} from 'react-router-dom';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 export function TopMovies({profile, movies, user, setUser, token}) {
   if (!movies) {
@@ -12,17 +14,18 @@ export function TopMovies({profile, movies, user, setUser, token}) {
   );
 
   return (
-    <div>
-      <h2>Favorite Movies</h2>
+    <Row>
       {favoriteMovies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          user={user}
-          setUser={setUser}
-          token={token}
-        />
+        <Col className="mb-4" key={movie.id} md={3}>
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            user={user}
+            setUser={setUser}
+            token={token}
+          />
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 }

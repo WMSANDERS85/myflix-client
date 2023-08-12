@@ -49,6 +49,8 @@ export function Mainview() {
     setToken(null);
   };
 
+  // On Signed up handler
+
   return (
     <BrowserRouter>
       <Row className="justify-content-md-center">
