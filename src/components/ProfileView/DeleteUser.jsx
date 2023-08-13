@@ -18,6 +18,7 @@ export function DeleteUser({profile, setUser, token}) {
       setUser(null);
       navigate('/signup');
     });
+    alert('Your Account was deleted succesfully');
   };
 
   return (

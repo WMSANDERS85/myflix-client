@@ -52,13 +52,23 @@ export const MovieCard = ({movie, user, setUser, token}) => {
   return (
     <Card className="h-100">
       <Card.Img variant="top" src={movie.image} />
-      <Card.Body>
+      <Card.Body
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>{movie.director.Name}</Card.Text>
         <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
           <Button variant="link">More</Button>
         </Link>
-        <Button onClick={handleToggleFavorite}>
+        <Button
+          variant={isFavorite ? 'danger' : 'success'}
+          size="sm"
+          onClick={handleToggleFavorite}
+        >
           {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
         </Button>
       </Card.Body>

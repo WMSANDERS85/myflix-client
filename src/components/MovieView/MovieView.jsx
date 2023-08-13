@@ -1,6 +1,7 @@
 import {useParams} from 'react-router';
 import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
+import Button from 'react-bootstrap/Button';
 
 export const MovieView = ({movies, user, setUser, token}) => {
   const {movieId} = useParams();
@@ -31,9 +32,11 @@ export const MovieView = ({movies, user, setUser, token}) => {
         }
         return response.json();
       })
-      .then((updatedUser) => {
-        setUser(updatedUser);
-        setIsFavorite(updatedUser.FavoriteMovies.some((fm) => fm == movie.id));
+      .then((updatedUserResponse) => {
+        setUser(updatedUserResponse.user);
+        setIsFavorite(
+          updatedUserResponse.user.FavoriteMovies.some((fm) => fm == movie.id)
+        );
       })
       .catch((error) => {
         const contentType = error.headers.get('content-type');
@@ -73,11 +76,14 @@ export const MovieView = ({movies, user, setUser, token}) => {
             <span>{movie.director.Name}</span>
           </div>
           <Link to={'/'}>
-            <button>Back</button>
+            <Button variant="secondary">Back</Button>
           </Link>
-          <button onClick={handleToggleFavorite}>
+          <Button
+            variant={isFavorite ? 'danger' : 'success'}
+            onClick={handleToggleFavorite}
+          >
             {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
-          </button>
+          </Button>
         </>
       ) : (
         <p>Movie not found</p> // Render a fallback UI when movie is not found

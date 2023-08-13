@@ -5,7 +5,12 @@ import {Link} from 'react-router-dom';
 
 export function NavigationBar({isLoggedIn, onLogout}) {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar
+      className="mb-4"
+      bg="dark"
+      variant="dark"
+      style={{paddingLeft: 20, borderRadius: '0 0 10px 10px'}}
+    >
       <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
       <Nav className="mr-auto">
         {isLoggedIn ? (

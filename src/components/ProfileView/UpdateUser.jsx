@@ -81,7 +81,7 @@ export function UpdateUser({profile, setUser, token}) {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="success" type="submit">
           Update
         </Button>
       </Form>
