@@ -2,7 +2,7 @@ import {createRoot} from 'react-dom/client';
 
 import Container from 'react-bootstrap/Container';
 
-import {Header} from './components/Header/Header';
+import {NavigationBar} from './components/NavigationBar/NavigationBar';
 
 import {Mainview} from './components/MainView/MainView';
 
@@ -15,7 +15,6 @@ import './index.scss';
 function MyFlixApplication() {
   return (
     <Container>
-      <Header />
       <Mainview />
     </Container>
   );
