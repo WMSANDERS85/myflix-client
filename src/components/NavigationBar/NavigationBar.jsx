@@ -16,7 +16,9 @@ export function NavigationBar({isLoggedIn, onLogout, handleSearch}) {
       style={{paddingLeft: 20, borderRadius: '0 0 10px 10px'}}
     >
       <Container>
-        <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          MyFlix
+        </Navbar.Brand>
         <Nav className="me-auto">
           {isLoggedIn ? (
             <>

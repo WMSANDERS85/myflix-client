@@ -28227,7 +28227,8 @@ function NavigationBar({ isLoggedIn, onLogout, handleSearch }) {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default).Brand, {
-                    href: "#home",
+                    as: (0, _reactRouterDom.Link),
+                    to: "/",
                     children: "MyFlix"
                 }, void 0, false, {
                     fileName: "src/components/NavigationBar/NavigationBar.jsx",
@@ -28249,12 +28250,12 @@ function NavigationBar({ isLoggedIn, onLogout, handleSearch }) {
                                             children: "Home"
                                         }, void 0, false, {
                                             fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                            lineNumber: 26,
+                                            lineNumber: 28,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                        lineNumber: 25,
+                                        lineNumber: 27,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -28266,12 +28267,12 @@ function NavigationBar({ isLoggedIn, onLogout, handleSearch }) {
                                             children: "Profile"
                                         }, void 0, false, {
                                             fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                            lineNumber: 31,
+                                            lineNumber: 33,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                        lineNumber: 30,
+                                        lineNumber: 32,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -28282,23 +28283,23 @@ function NavigationBar({ isLoggedIn, onLogout, handleSearch }) {
                                             children: "Logout"
                                         }, void 0, false, {
                                             fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                            lineNumber: 36,
+                                            lineNumber: 38,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                        lineNumber: 35,
+                                        lineNumber: 37,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                lineNumber: 24,
+                                lineNumber: 26,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                            lineNumber: 23,
+                            lineNumber: 25,
                             columnNumber: 15
                         }, this)
                     }, void 0, false) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -28309,7 +28310,7 @@ function NavigationBar({ isLoggedIn, onLogout, handleSearch }) {
                                 children: "Login"
                             }, void 0, false, {
                                 fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                lineNumber: 43,
+                                lineNumber: 45,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
@@ -28318,14 +28319,14 @@ function NavigationBar({ isLoggedIn, onLogout, handleSearch }) {
                                 children: "Signup"
                             }, void 0, false, {
                                 fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                                lineNumber: 46,
+                                lineNumber: 48,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true)
                 }, void 0, false, {
                     fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                    lineNumber: 20,
+                    lineNumber: 22,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
@@ -28340,13 +28341,13 @@ function NavigationBar({ isLoggedIn, onLogout, handleSearch }) {
                             onChange: handleSearch
                         }, void 0, false, {
                             fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                            lineNumber: 57,
+                            lineNumber: 59,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/NavigationBar/NavigationBar.jsx",
-                    lineNumber: 54,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, this)
             ]
@@ -48160,6 +48161,9 @@ var _s = $RefreshSig$();
 function DeleteUser({ profile, setUser, token }) {
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
+    const [showModal, setShowModal] = (0, _react.useState)(false);
+    const handleShowModal = ()=>setShowModal(true);
+    const handelCloseModal = ()=>setShowModal(false);
     const handleDelete = ()=>{
         fetch(`https://myflix-movies-app-3c39c5149294.herokuapp.com/users/${profile.Username}`, {
             method: "DELETE",
@@ -48173,22 +48177,83 @@ function DeleteUser({ profile, setUser, token }) {
         alert("Your Account was deleted succesfully");
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-            variant: "danger",
-            onClick: handleDelete,
-            children: "Delete Profile"
-        }, void 0, false, {
-            fileName: "src/components/ProfileView/DeleteUser.jsx",
-            lineNumber: 28,
-            columnNumber: 7
-        }, this)
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                    variant: "danger",
+                    onClick: handleShowModal,
+                    children: "Delete Profile"
+                }, void 0, false, {
+                    fileName: "src/components/ProfileView/DeleteUser.jsx",
+                    lineNumber: 34,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default), {
+                    show: showModal,
+                    onHide: handelCloseModal,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Header, {
+                            closeButton: true,
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Title, {
+                                children: "Delete Profile"
+                            }, void 0, false, {
+                                fileName: "src/components/ProfileView/DeleteUser.jsx",
+                                lineNumber: 39,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/components/ProfileView/DeleteUser.jsx",
+                            lineNumber: 38,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Body, {
+                            children: "Are you sure you want to delete your account?"
+                        }, void 0, false, {
+                            fileName: "src/components/ProfileView/DeleteUser.jsx",
+                            lineNumber: 41,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Footer, {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    variant: "secondary",
+                                    onClick: handelCloseModal,
+                                    children: "Cancel"
+                                }, void 0, false, {
+                                    fileName: "src/components/ProfileView/DeleteUser.jsx",
+                                    lineNumber: 43,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    variant: "danger",
+                                    onClick: handleDelete,
+                                    children: "Delete Account"
+                                }, void 0, false, {
+                                    fileName: "src/components/ProfileView/DeleteUser.jsx",
+                                    lineNumber: 46,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/ProfileView/DeleteUser.jsx",
+                            lineNumber: 42,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/ProfileView/DeleteUser.jsx",
+                    lineNumber: 37,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true)
     }, void 0, false, {
         fileName: "src/components/ProfileView/DeleteUser.jsx",
-        lineNumber: 27,
+        lineNumber: 32,
         columnNumber: 5
     }, this);
 }
-_s(DeleteUser, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+_s(DeleteUser, "sPSo9rQNka1iJnDXIEPmeQO8KSU=", false, function() {
     return [
         (0, _reactRouterDom.useNavigate)
     ];
