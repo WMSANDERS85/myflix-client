@@ -47099,6 +47099,8 @@ var _reactRouterDom = require("react-router-dom");
 var _react = require("react");
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _figure = require("react-bootstrap/Figure");
+var _figureDefault = parcelHelpers.interopDefault(_figure);
 var _s = $RefreshSig$();
 const MovieView = ({ movies, user, setUser, token })=>{
     _s();
@@ -47132,143 +47134,221 @@ const MovieView = ({ movies, user, setUser, token })=>{
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: movie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        src: movie.image
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _figureDefault.default), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _figureDefault.default).Image, {
+                        width: 200,
+                        height: 210,
+                        src: movie.image,
+                        alt: "200 x 210"
                     }, void 0, false, {
                         fileName: "src/components/MovieView/MovieView.jsx",
-                        lineNumber: 60,
+                        lineNumber: 61,
                         columnNumber: 13
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/MovieView/MovieView.jsx",
-                    lineNumber: 59,
-                    columnNumber: 11
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            children: "Title: "
-                        }, void 0, false, {
-                            fileName: "src/components/MovieView/MovieView.jsx",
-                            lineNumber: 63,
-                            columnNumber: 13
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            children: movie.title
-                        }, void 0, false, {
-                            fileName: "src/components/MovieView/MovieView.jsx",
-                            lineNumber: 64,
-                            columnNumber: 13
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/MovieView/MovieView.jsx",
-                    lineNumber: 62,
-                    columnNumber: 11
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            children: "Description: "
-                        }, void 0, false, {
-                            fileName: "src/components/MovieView/MovieView.jsx",
-                            lineNumber: 67,
-                            columnNumber: 13
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            children: movie.description
-                        }, void 0, false, {
-                            fileName: "src/components/MovieView/MovieView.jsx",
-                            lineNumber: 68,
-                            columnNumber: 13
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/MovieView/MovieView.jsx",
-                    lineNumber: 66,
-                    columnNumber: 11
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            children: "Genre: "
-                        }, void 0, false, {
-                            fileName: "src/components/MovieView/MovieView.jsx",
-                            lineNumber: 71,
-                            columnNumber: 13
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            children: movie.genre.Name
-                        }, void 0, false, {
-                            fileName: "src/components/MovieView/MovieView.jsx",
-                            lineNumber: 72,
-                            columnNumber: 13
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/MovieView/MovieView.jsx",
-                    lineNumber: 70,
-                    columnNumber: 11
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            children: "Director: "
-                        }, void 0, false, {
-                            fileName: "src/components/MovieView/MovieView.jsx",
-                            lineNumber: 75,
-                            columnNumber: 13
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            children: movie.director.Name
-                        }, void 0, false, {
-                            fileName: "src/components/MovieView/MovieView.jsx",
-                            lineNumber: 76,
-                            columnNumber: 13
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/MovieView/MovieView.jsx",
-                    lineNumber: 74,
-                    columnNumber: 11
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                    to: "/",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                        variant: "secondary",
-                        children: "Back"
-                    }, void 0, false, {
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _figureDefault.default).Caption, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                style: {
+                                    fontSize: "18px"
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                        children: "Title:"
+                                    }, void 0, false, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 69,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    " "
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/MovieView/MovieView.jsx",
+                                lineNumber: 68,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                style: {
+                                    fontSize: "18px"
+                                },
+                                children: movie.title
+                            }, void 0, false, {
+                                fileName: "src/components/MovieView/MovieView.jsx",
+                                lineNumber: 71,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                style: {
+                                                    fontSize: "18px"
+                                                },
+                                                children: "Description:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/MovieView/MovieView.jsx",
+                                                lineNumber: 75,
+                                                columnNumber: 19
+                                            }, undefined),
+                                            " "
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 74,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        style: {
+                                            fontSize: "18px"
+                                        },
+                                        children: movie.description
+                                    }, void 0, false, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 77,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/MovieView/MovieView.jsx",
+                                lineNumber: 73,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        style: {
+                                            fontSize: "18px"
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                children: "Genre:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/MovieView/MovieView.jsx",
+                                                lineNumber: 81,
+                                                columnNumber: 19
+                                            }, undefined),
+                                            " "
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 80,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        style: {
+                                            fontSize: "18px"
+                                        },
+                                        children: movie.genre.Name
+                                    }, void 0, false, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 83,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/MovieView/MovieView.jsx",
+                                lineNumber: 79,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        style: {
+                                            fontSize: "18px"
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                children: "Director:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/MovieView/MovieView.jsx",
+                                                lineNumber: 87,
+                                                columnNumber: 19
+                                            }, undefined),
+                                            " "
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 86,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        style: {
+                                            fontSize: "18px"
+                                        },
+                                        children: movie.director.Name
+                                    }, void 0, false, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 89,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/MovieView/MovieView.jsx",
+                                lineNumber: 85,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                        to: "/",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                            style: {
+                                                marginTop: "6px"
+                                            },
+                                            variant: "secondary",
+                                            children: "Back"
+                                        }, void 0, false, {
+                                            fileName: "src/components/MovieView/MovieView.jsx",
+                                            lineNumber: 93,
+                                            columnNumber: 19
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 92,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                        variant: isFavorite ? "danger" : "success",
+                                        onClick: handleToggleFavorite,
+                                        style: {
+                                            marginTop: "6px",
+                                            marginLeft: "6px"
+                                        },
+                                        children: isFavorite ? "Remove from Favorites" : "Add to Favorites"
+                                    }, void 0, false, {
+                                        fileName: "src/components/MovieView/MovieView.jsx",
+                                        lineNumber: 98,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/MovieView/MovieView.jsx",
+                                lineNumber: 91,
+                                columnNumber: 15
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/components/MovieView/MovieView.jsx",
-                        lineNumber: 79,
+                        lineNumber: 67,
                         columnNumber: 13
                     }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/MovieView/MovieView.jsx",
-                    lineNumber: 78,
-                    columnNumber: 11
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                    variant: isFavorite ? "danger" : "success",
-                    onClick: handleToggleFavorite,
-                    children: isFavorite ? "Remove from Favorites" : "Add to Favorites"
-                }, void 0, false, {
-                    fileName: "src/components/MovieView/MovieView.jsx",
-                    lineNumber: 81,
-                    columnNumber: 11
-                }, undefined)
-            ]
-        }, void 0, true) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                ]
+            }, void 0, true, {
+                fileName: "src/components/MovieView/MovieView.jsx",
+                lineNumber: 60,
+                columnNumber: 11
+            }, undefined)
+        }, void 0, false) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
             children: "Movie not found"
         }, void 0, false, {
             fileName: "src/components/MovieView/MovieView.jsx",
-            lineNumber: 89,
+            lineNumber: 110,
             columnNumber: 9
         }, undefined) // Render a fallback UI when movie is not found
     }, void 0, false, {
         fileName: "src/components/MovieView/MovieView.jsx",
-        lineNumber: 56,
+        lineNumber: 57,
         columnNumber: 5
     }, undefined);
 };
@@ -47286,7 +47366,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router":"dbWyW","react-router-dom":"9xmpe","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt"}],"7GV9H":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router":"dbWyW","react-router-dom":"9xmpe","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt","react-bootstrap/Figure":"7Eckp"}],"7GV9H":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0aaf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
