@@ -46750,10 +46750,12 @@ function Mainview() {
     const storedToken = localStorage.getItem("token");
     const [user, setUser] = (0, _react.useState)(storedUser);
     const [token, setToken] = (0, _react.useState)(storedToken);
-    const [movies, setMovies] = (0, _react.useState)(null);
+    const [movies, setMovies] = (0, _react.useState)([]);
     const [error, setError] = (0, _react.useState)(null);
     const [filteredMovies, setFilteredMovies] = (0, _react.useState)([]);
-    const normalizeMoviesData = (data)=>data.map((movie)=>({
+    const normalizeMoviesData = (data)=>{
+        if (!Array.isArray(data)) return [];
+        return data.map((movie)=>({
                 id: movie._id,
                 title: movie.Title,
                 description: movie.Description,
@@ -46761,6 +46763,7 @@ function Mainview() {
                 director: movie.Director,
                 image: movie.ImagePath
             }));
+    };
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch("https://myflix-movies-app-3c39c5149294.herokuapp.com/movies", {
@@ -46789,7 +46792,7 @@ function Mainview() {
     ]);
     const handleSearch = (e)=>{
         const searchWord = e.target.value.toLowerCase();
-        const tempArray = movies.filter((movies)=>movies.title.toLowerCase().includes(searchWord));
+        const tempArray = movies.filter((movie)=>movie.title.toLowerCase().includes(searchWord));
         setFilteredMovies(tempArray);
     };
     // On Signed up handler
@@ -46803,7 +46806,7 @@ function Mainview() {
                     handleSearch: handleSearch
                 }, void 0, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 70,
+                    lineNumber: 75,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
@@ -46818,7 +46821,7 @@ function Mainview() {
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 76,
+                            lineNumber: 81,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -46834,7 +46837,7 @@ function Mainview() {
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 88,
+                            lineNumber: 93,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -46852,7 +46855,7 @@ function Mainview() {
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 104,
+                            lineNumber: 109,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -46873,7 +46876,7 @@ function Mainview() {
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 121,
+                            lineNumber: 126,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -46897,35 +46900,35 @@ function Mainview() {
                                 }, movie.id, false, void 0, void 0))
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 141,
+                            lineNumber: 146,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 75,
+                    lineNumber: 80,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: error
                 }, void 0, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 165,
+                    lineNumber: 170,
                     columnNumber: 19
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/MainView/MainView.jsx",
-            lineNumber: 69,
+            lineNumber: 74,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 68,
+        lineNumber: 73,
         columnNumber: 5
     }, this);
 }
-_s(Mainview, "g6ryqZk8uIT4bBtaGjaBlifH9P0=");
+_s(Mainview, "FeoUGIMeRmgLetkYyUTrXCAMPSE=");
 _c = Mainview;
 var _c;
 $RefreshReg$(_c, "Mainview");
@@ -48150,6 +48153,9 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _modal = require("react-bootstrap/Modal");
+var _modalDefault = parcelHelpers.interopDefault(_modal);
+var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 function DeleteUser({ profile, setUser, token }) {
     _s();
@@ -48173,12 +48179,12 @@ function DeleteUser({ profile, setUser, token }) {
             children: "Delete Profile"
         }, void 0, false, {
             fileName: "src/components/ProfileView/DeleteUser.jsx",
-            lineNumber: 26,
+            lineNumber: 28,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/ProfileView/DeleteUser.jsx",
-        lineNumber: 25,
+        lineNumber: 27,
         columnNumber: 5
     }, this);
 }
@@ -48196,7 +48202,7 @@ $RefreshReg$(_c, "DeleteUser");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4UMFO":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Modal":"aNVmp","react-bootstrap":"3AD9A"}],"4UMFO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5696 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

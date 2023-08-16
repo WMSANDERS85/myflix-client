@@ -14,12 +14,16 @@ export function Mainview() {
   const storedToken = localStorage.getItem('token');
   const [user, setUser] = useState(storedUser);
   const [token, setToken] = useState(storedToken);
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
-  const normalizeMoviesData = (data) =>
-    data.map((movie) => ({
+  const normalizeMoviesData = (data) => {
+    if (!Array.isArray(data)) {
+      return [];
+    }
+
+    return data.map((movie) => ({
       id: movie._id,
       title: movie.Title,
       description: movie.Description,
@@ -27,6 +31,7 @@ export function Mainview() {
       director: movie.Director,
       image: movie.ImagePath,
     }));
+  };
 
   useEffect(() => {
     if (!token) return;
@@ -56,8 +61,8 @@ export function Mainview() {
 
   const handleSearch = (e) => {
     const searchWord = e.target.value.toLowerCase();
-    const tempArray = movies.filter((movies) =>
-      movies.title.toLowerCase().includes(searchWord)
+    const tempArray = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchWord)
     );
     setFilteredMovies(tempArray);
   };
