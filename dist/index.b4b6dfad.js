@@ -46752,6 +46752,7 @@ function Mainview() {
     const [token, setToken] = (0, _react.useState)(storedToken);
     const [movies, setMovies] = (0, _react.useState)(null);
     const [error, setError] = (0, _react.useState)(null);
+    const [filteredMovies, setFilteredMovies] = (0, _react.useState)([]);
     const normalizeMoviesData = (data)=>data.map((movie)=>({
                 id: movie._id,
                 title: movie.Title,
@@ -46781,6 +46782,16 @@ function Mainview() {
         setUser(null);
         setToken(null);
     };
+    (0, _react.useEffect)(()=>{
+        setFilteredMovies(movies);
+    }, [
+        movies
+    ]);
+    const handleSearch = (e)=>{
+        const searchWord = e.target.value.toLowerCase();
+        const tempArray = movies.filter((movies)=>movies.title.toLowerCase().includes(searchWord));
+        setFilteredMovies(tempArray);
+    };
     // On Signed up handler
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -46788,10 +46799,11 @@ function Mainview() {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navigationBar.NavigationBar), {
                     isLoggedIn: !!user,
-                    onLogout: logout
+                    onLogout: logout,
+                    handleSearch: handleSearch
                 }, void 0, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 57,
+                    lineNumber: 70,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
@@ -46806,7 +46818,7 @@ function Mainview() {
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 59,
+                            lineNumber: 76,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -46822,7 +46834,7 @@ function Mainview() {
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 71,
+                            lineNumber: 88,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -46840,7 +46852,7 @@ function Mainview() {
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 87,
+                            lineNumber: 104,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -46861,7 +46873,7 @@ function Mainview() {
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 104,
+                            lineNumber: 121,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -46873,7 +46885,7 @@ function Mainview() {
                                 children: "Loading..."
                             }, void 0, false, void 0, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                 children: "The list is empty!"
-                            }, void 0, false, void 0, void 0) : movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                            }, void 0, false, void 0, void 0) : filteredMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     className: "mb-4",
                                     md: 3,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -46885,35 +46897,35 @@ function Mainview() {
                                 }, movie.id, false, void 0, void 0))
                         }, void 0, false, {
                             fileName: "src/components/MainView/MainView.jsx",
-                            lineNumber: 124,
+                            lineNumber: 141,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 58,
+                    lineNumber: 75,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: error
                 }, void 0, false, {
                     fileName: "src/components/MainView/MainView.jsx",
-                    lineNumber: 148,
+                    lineNumber: 165,
                     columnNumber: 19
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/MainView/MainView.jsx",
-            lineNumber: 56,
+            lineNumber: 69,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/MainView/MainView.jsx",
-        lineNumber: 55,
+        lineNumber: 68,
         columnNumber: 5
     }, this);
 }
-_s(Mainview, "hwqG0r8l0iFiaTX6dtpqoB8Ju8g=");
+_s(Mainview, "g6ryqZk8uIT4bBtaGjaBlifH9P0=");
 _c = Mainview;
 var _c;
 $RefreshReg$(_c, "Mainview");

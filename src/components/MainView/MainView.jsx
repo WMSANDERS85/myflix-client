@@ -16,6 +16,7 @@ export function Mainview() {
   const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   const normalizeMoviesData = (data) =>
     data.map((movie) => ({
@@ -49,12 +50,28 @@ export function Mainview() {
     setToken(null);
   };
 
+  useEffect(() => {
+    setFilteredMovies(movies);
+  }, [movies]);
+
+  const handleSearch = (e) => {
+    const searchWord = e.target.value.toLowerCase();
+    const tempArray = movies.filter((movies) =>
+      movies.title.toLowerCase().includes(searchWord)
+    );
+    setFilteredMovies(tempArray);
+  };
+
   // On Signed up handler
 
   return (
     <BrowserRouter>
       <Row className="justify-content-md-center">
-        <NavigationBar isLoggedIn={!!user} onLogout={logout} />
+        <NavigationBar
+          isLoggedIn={!!user}
+          onLogout={logout}
+          handleSearch={handleSearch}
+        />
         <Routes>
           <Route
             path="/signup"
@@ -131,7 +148,7 @@ export function Mainview() {
               ) : movies.length === 0 ? (
                 <Col>The list is empty!</Col>
               ) : (
-                movies.map((movie) => (
+                filteredMovies.map((movie) => (
                   <Col className="mb-4" key={movie.id} md={3}>
                     <MovieCard
                       movie={movie}
